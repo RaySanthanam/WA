@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: #111b21;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar - WhatsApp style */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(134, 150, 160, 0.5);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(134, 150, 160, 0.7);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(134, 150, 160, 0.5) transparent;
+}
+
+/* WhatsApp chat background with doodle pattern */
+.chat-bg {
+  background-color: #0b141a;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'%3E%3Cg fill='%2309151a' fill-rule='evenodd'%3E%3C!-- Clock --%3E%3Ccircle cx='25' cy='25' r='8' fill='none' stroke='%2309151a' stroke-width='1.5'/%3E%3Cpath d='M25 19v7l4 3' fill='none' stroke='%2309151a' stroke-width='1.5' stroke-linecap='round'/%3E%3C!-- Phone --%3E%3Crect x='130' y='12' width='10' height='18' rx='2'/%3E%3Ccircle cx='135' cy='26' r='1.5'/%3E%3C!-- Heart --%3E%3Cpath d='M230 22c0-4 3-7 6.5-7s6.5 3 6.5 7c0 7-6.5 12-6.5 12s-6.5-5-6.5-12z'/%3E%3C!-- Message bubble --%3E%3Cpath d='M55 70h20c2 0 3 1 3 3v12c0 2-1 3-3 3h-15l-5 5v-5c-2 0-3-1-3-3v-12c0-2 1-3 3-3z'/%3E%3C!-- Star --%3E%3Cpath d='M170 75l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z'/%3E%3C!-- Camera --%3E%3Crect x='255' y='68' width='18' height='14' rx='2'/%3E%3Ccircle cx='264' cy='75' r='4' fill='%230b141a'/%3E%3Cpath d='M259 68l2-3h6l2 3'/%3E%3C!-- Smile --%3E%3Ccircle cx='30' cy='140' r='10' fill='none' stroke='%2309151a' stroke-width='1.5'/%3E%3Ccircle cx='26' cy='137' r='1.5'/%3E%3Ccircle cx='34' cy='137' r='1.5'/%3E%3Cpath d='M25 143c2 2 6 2 8 0' fill='none' stroke='%2309151a' stroke-width='1.5' stroke-linecap='round'/%3E%3C!-- Music note --%3E%3Cpath d='M100 130v18M100 148c-3 0-5-2-5-4s2-4 5-4 5 2 5 4-2 4-5 4zM100 130l12-4v18M112 144c-3 0-5-2-5-4s2-4 5-4 5 2 5 4-2 4-5 4z' fill='none' stroke='%2309151a' stroke-width='1.5'/%3E%3C!-- Pin/Location --%3E%3Cpath d='M200 125c-6 0-10 4-10 10 0 8 10 18 10 18s10-10 10-18c0-6-4-10-10-10zm0 14c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4z'/%3E%3C!-- Lock --%3E%3Crect x='268' y='135' width='14' height='12' rx='2'/%3E%3Cpath d='M270 135v-4c0-3 2-5 5-5s5 2 5 5v4' fill='none' stroke='%2309151a' stroke-width='1.5'/%3E%3C!-- Document --%3E%3Cpath d='M45 195h14c1 0 2 1 2 2v20c0 1-1 2-2 2h-14c-1 0-2-1-2-2v-20c0-1 1-2 2-2zM48 202h8M48 207h8M48 212h5'/%3E%3C!-- Microphone --%3E%3Cpath d='M125 195v12c0 4-3 7-7 7s-7-3-7-7v-12c0-4 3-7 7-7s7 3 7 7z' fill='none' stroke='%2309151a' stroke-width='1.5'/%3E%3Cpath d='M110 207c0 5 4 9 8 9s8-4 8-9M118 216v6M114 222h8' fill='none' stroke='%2309151a' stroke-width='1.5'/%3E%3C!-- Video --%3E%3Crect x='185' y='195' width='20' height='14' rx='2'/%3E%3Cpath d='M205 199l10-4v18l-10-4'/%3E%3C!-- Gift --%3E%3Crect x='260' y='200' width='16' height='14' rx='1'/%3E%3Cpath d='M260 207h16M268 200v14' stroke='%230b141a' stroke-width='1'/%3E%3Cpath d='M262 200c-2-3 0-6 3-6 2 0 3 2 3 4M274 200c2-3 0-6-3-6-2 0-3 2-3 4' fill='none' stroke='%2309151a' stroke-width='1.5'/%3E%3C!-- Bell --%3E%3Cpath d='M28 260c0-6 4-10 8-10s8 4 8 10v5h-16v-5zM24 265h24M34 275c0 2 1 3 2 3s2-1 2-3' fill='none' stroke='%2309151a' stroke-width='1.5'/%3E%3C!-- Globe --%3E%3Ccircle cx='95' cy='270' r='10' fill='none' stroke='%2309151a' stroke-width='1.5'/%3E%3Cellipse cx='95' cy='270' rx='4' ry='10' fill='none' stroke='%2309151a' stroke-width='1'/%3E%3Cpath d='M85 270h20M86 265h18M86 275h18' fill='none' stroke='%2309151a' stroke-width='1'/%3E%3C!-- Thumbs up --%3E%3Cpath d='M165 258c0-4 2-6 5-6l8 1c2 0 3 2 3 4v14c0 2-1 3-3 3h-10c-2 0-3-2-3-4v-12zM165 264h-6c-2 0-3 1-3 3v7c0 2 1 3 3 3h6' fill='none' stroke='%2309151a' stroke-width='1.5'/%3E%3C!-- Wi-Fi --%3E%3Cpath d='M240 280c8-10 24-10 32 0M246 275c5-6 15-6 20 0M252 270c3-3 8-3 11 0' fill='none' stroke='%2309151a' stroke-width='1.5' stroke-linecap='round'/%3E%3Ccircle cx='257' cy='278' r='2'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 300px 300px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Smooth scroll */
+.chat-scroll {
+  scroll-behavior: smooth;
+}
+
+/* Dropdown menu animation */
+.group:hover .group-hover\:block {
+  animation: fadeIn 0.15s ease-out;
+}
+
+/* Selection color */
+::selection {
+  background-color: rgba(0, 168, 132, 0.3);
+}
+
+/* Audio player styling */
+audio::-webkit-media-controls-panel {
+  background-color: transparent;
+}
+
+audio::-webkit-media-controls-play-button {
+  background-color: #00a884;
+  border-radius: 50%;
+}
+
+/* Input placeholder */
+input::placeholder {
+  color: #8696a0;
+}
+
+/* Focus ring */
+input:focus {
+  outline: none;
+}
+
+/* Button states */
+button {
+  transition: background-color 0.15s ease;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* Link styles */
+a {
+  color: #53bdeb;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Ensure proper text rendering */
+.text-render {
+  text-rendering: optimizeLegibility;
+}
