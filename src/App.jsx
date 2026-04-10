@@ -165,15 +165,21 @@ export default function App() {
                 onSettingsClick={() => setSidebarView('settings')}
                 onProfileClick={() => setSidebarView('profile')}
                 yourName={CONFIG.yourName}
+                yourAvatar={CONFIG.yourAvatar}
               />
             )}
             {sidebarView === 'settings' && (
-              <SettingsPanel onBack={() => setSidebarView('chats')} />
+              <SettingsPanel
+                onBack={() => setSidebarView('chats')}
+                yourAvatar={CONFIG.yourAvatar}
+                yourName={CONFIG.yourName}
+              />
             )}
             {sidebarView === 'profile' && (
               <ProfilePanel
                 onBack={() => setSidebarView('chats')}
                 yourName={CONFIG.yourName}
+                yourAvatar={CONFIG.yourAvatar}
               />
             )}
           </div>
