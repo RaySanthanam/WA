@@ -1,12 +1,15 @@
 import React, { useState, useRef, useEffect } from 'react';
 import MessageBubble from './MessageBubble';
 import DateSeparator from './DateSeparator';
+import MediaGallery from './MediaGallery';
 import { groupMessagesByDate, searchMessages } from '../utils/parseWhatsApp';
 
 export default function ChatView({ chat, onImageClick, onBack }) {
   const [showSearch, setShowSearch] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [showContactInfo, setShowContactInfo] = useState(false);
+  const [showMedia, setShowMedia] = useState(false);
+  const [highlightedMessageId, setHighlightedMessageId] = useState(null);
   const chatRef = useRef(null);
 
   const filteredMessages = searchQuery
@@ -18,12 +21,34 @@ export default function ChatView({ chat, onImageClick, onBack }) {
   // Scroll to bottom on chat change
   useEffect(() => {
     if (chatRef.current && !searchQuery) {
-      chatRef.current.scrollTop = chatRef.current.scrollHeight;
+      setTimeout(() => {
+        chatRef.current.scrollTop = chatRef.current.scrollHeight;
+      }, 100);
     }
   }, [chat.id]);
 
+  // Scroll to highlighted message
+  useEffect(() => {
+    if (highlightedMessageId !== null) {
+      const element = document.querySelector(`[data-message-id="${highlightedMessageId}"]`);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        // Remove highlight after animation
+        setTimeout(() => setHighlightedMessageId(null), 2000);
+      }
+    }
+  }, [highlightedMessageId]);
+
+  // Handle clicking on a search result
+  const handleMessageClick = (messageId) => {
+    setSearchQuery('');
+    setShowSearch(false);
+    // Small delay to let the full chat render before scrolling
+    setTimeout(() => setHighlightedMessageId(messageId), 100);
+  };
+
   return (
-    <div className="flex flex-col h-full min-h-0 bg-[#0b141a] overflow-hidden">
+    <div className="flex flex-col h-full min-h-0 bg-[#0b141a] overflow-hidden relative">
       {/* Header */}
       <header className="flex items-center gap-3 px-4 py-2 bg-[#202c33]">
         {/* Back button (mobile) */}
@@ -72,6 +97,17 @@ export default function ChatView({ chat, onImageClick, onBack }) {
           <button className="p-2 hover:bg-[#374045] rounded-full text-[#aebac1] transition-colors" title="Voice call">
             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
               <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
+            </svg>
+          </button>
+
+          {/* Media gallery */}
+          <button
+            onClick={() => setShowMedia(true)}
+            className="p-2 hover:bg-[#374045] rounded-full text-[#aebac1] transition-colors"
+            title="Media"
+          >
+            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
             </svg>
           </button>
 
@@ -182,6 +218,8 @@ export default function ChatView({ chat, onImageClick, onBack }) {
                     message={message}
                     onImageClick={onImageClick}
                     showSender={false}
+                    onClick={searchQuery ? () => handleMessageClick(message.id) : undefined}
+                    isHighlighted={highlightedMessageId === message.id}
                   />
                 ))}
               </div>
@@ -213,6 +251,17 @@ export default function ChatView({ chat, onImageClick, onBack }) {
           </svg>
         </button>
       </div>
+
+      {/* Media Gallery Overlay */}
+      {showMedia && (
+        <div className="absolute inset-0 z-40">
+          <MediaGallery
+            messages={chat.messages}
+            onImageClick={onImageClick}
+            onClose={() => setShowMedia(false)}
+          />
+        </div>
+      )}
     </div>
   );
 }
