@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function MessageBubble({ message, onImageClick, showSender }) {
+export default function MessageBubble({ message, onImageClick, showSender, onClick, isHighlighted }) {
   const isOutgoing = message.isOutgoing;
 
   const renderContent = () => {
@@ -95,15 +95,20 @@ export default function MessageBubble({ message, onImageClick, showSender }) {
   };
 
   return (
-    <div className={`flex ${isOutgoing ? 'justify-end' : 'justify-start'} px-[5%] md:px-[7%]`}>
+    <div
+      className={`flex ${isOutgoing ? 'justify-end' : 'justify-start'} px-[5%] md:px-[7%] ${onClick ? 'cursor-pointer' : ''}`}
+      data-message-id={message.id}
+      onClick={onClick}
+    >
       <div
         className={`
-          relative max-w-[65%] rounded-lg shadow-sm
+          relative max-w-[65%] rounded-lg shadow-sm transition-all duration-300
           ${message.type === 'image' || message.type === 'video' ? 'p-1' : 'px-[9px] pt-[6px] pb-[8px]'}
           ${isOutgoing
             ? 'bg-[#005c4b] text-[#e9edef]'
             : 'bg-[#202c33] text-[#e9edef]'
           }
+          ${isHighlighted ? 'ring-2 ring-[#00a884] ring-offset-2 ring-offset-[#0b141a]' : ''}
         `}
         style={{
           borderRadius: isOutgoing ? '7.5px 0 7.5px 7.5px' : '0 7.5px 7.5px 7.5px'
