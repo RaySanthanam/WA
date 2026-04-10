@@ -7,20 +7,29 @@ import { groupMessagesByDate, searchMessages } from '../utils/parseWhatsApp';
 export default function ChatView({ chat, onImageClick, onBack }) {
   const [showSearch, setShowSearch] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [debouncedQuery, setDebouncedQuery] = useState('');
   const [showContactInfo, setShowContactInfo] = useState(false);
   const [showMedia, setShowMedia] = useState(false);
   const [highlightedMessageId, setHighlightedMessageId] = useState(null);
   const chatRef = useRef(null);
 
-  const filteredMessages = searchQuery
-    ? searchMessages(chat.messages, searchQuery)
+  // Debounce search query - only filter after 300ms of no typing
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedQuery(searchQuery);
+    }, 300);
+    return () => clearTimeout(timer);
+  }, [searchQuery]);
+
+  const filteredMessages = debouncedQuery
+    ? searchMessages(chat.messages, debouncedQuery)
     : chat.messages;
 
   const messageGroups = groupMessagesByDate(filteredMessages);
 
   // Scroll to bottom on chat change
   useEffect(() => {
-    if (chatRef.current && !searchQuery) {
+    if (chatRef.current && !debouncedQuery) {
       setTimeout(() => {
         chatRef.current.scrollTop = chatRef.current.scrollHeight;
       }, 100);
@@ -30,21 +39,32 @@ export default function ChatView({ chat, onImageClick, onBack }) {
   // Scroll to highlighted message
   useEffect(() => {
     if (highlightedMessageId !== null) {
-      const element = document.querySelector(`[data-message-id="${highlightedMessageId}"]`);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      // Longer delay to ensure DOM is fully rendered
+      setTimeout(() => {
+        const element = document.querySelector(`[data-message-id="${highlightedMessageId}"]`);
+        if (element) {
+          // Get the chat container's position
+          const container = chatRef.current;
+          if (container) {
+            const elementRect = element.getBoundingClientRect();
+            const containerRect = container.getBoundingClientRect();
+            const scrollTop = container.scrollTop + elementRect.top - containerRect.top - (containerRect.height / 2) + (elementRect.height / 2);
+            container.scrollTo({ top: scrollTop, behavior: 'smooth' });
+          }
+        }
         // Remove highlight after animation
         setTimeout(() => setHighlightedMessageId(null), 2000);
-      }
+      }, 300);
     }
   }, [highlightedMessageId]);
 
   // Handle clicking on a search result
   const handleMessageClick = (messageId) => {
     setSearchQuery('');
+    setDebouncedQuery('');
     setShowSearch(false);
-    // Small delay to let the full chat render before scrolling
-    setTimeout(() => setHighlightedMessageId(messageId), 100);
+    // Longer delay to let the full chat render before scrolling
+    setTimeout(() => setHighlightedMessageId(messageId), 500);
   };
 
   return (
@@ -170,6 +190,7 @@ export default function ChatView({ chat, onImageClick, onBack }) {
             onClick={() => {
               setShowSearch(false);
               setSearchQuery('');
+              setDebouncedQuery('');
             }}
             className="p-1 hover:bg-[#374045] rounded-full text-[#aebac1]"
           >
@@ -186,7 +207,9 @@ export default function ChatView({ chat, onImageClick, onBack }) {
             autoFocus
           />
           {searchQuery && (
-            <span className="text-[#8696a0] text-sm">{filteredMessages.length} found</span>
+            <span className="text-[#8696a0] text-sm">
+              {searchQuery !== debouncedQuery ? 'Searching...' : `${filteredMessages.length} found`}
+            </span>
           )}
         </div>
       )}
