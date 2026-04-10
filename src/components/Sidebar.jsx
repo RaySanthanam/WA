@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ChatListItem from './ChatListItem';
 
-export default function Sidebar({ chats, activeChat, onChatSelect, onSettingsClick, onProfileClick, yourName }) {
+export default function Sidebar({ chats, activeChat, onChatSelect, onSettingsClick, onProfileClick, yourName, yourAvatar }) {
   const [searchQuery, setSearchQuery] = useState('');
   const [showArchived, setShowArchived] = useState(false);
   const [filter, setFilter] = useState('all'); // 'all' | 'unread' | 'groups'
@@ -23,9 +23,13 @@ export default function Sidebar({ chats, activeChat, onChatSelect, onSettingsCli
           onClick={onProfileClick}
           className="w-10 h-10 rounded-full bg-[#6a7175] flex items-center justify-center overflow-hidden hover:opacity-80 transition-opacity"
         >
-          <svg className="w-6 h-6 text-[#cfd4d6]" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-          </svg>
+          {yourAvatar ? (
+            <img src={yourAvatar} alt="Profile" className="w-full h-full object-cover" />
+          ) : (
+            <svg className="w-6 h-6 text-[#cfd4d6]" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+            </svg>
+          )}
         </button>
 
         {/* Action buttons */}
