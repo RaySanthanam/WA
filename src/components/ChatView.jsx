@@ -11,6 +11,7 @@ export default function ChatView({ chat, onImageClick, onBack }) {
   const [showContactInfo, setShowContactInfo] = useState(false);
   const [showMedia, setShowMedia] = useState(false);
   const [highlightedMessageId, setHighlightedMessageId] = useState(null);
+  const [isScrolling, setIsScrolling] = useState(false);
   const chatRef = useRef(null);
 
   // Debounce search query - only filter after 300ms of no typing
@@ -60,11 +61,15 @@ export default function ChatView({ chat, onImageClick, onBack }) {
 
   // Handle clicking on a search result
   const handleMessageClick = (messageId) => {
+    setIsScrolling(true);
     setSearchQuery('');
     setDebouncedQuery('');
     setShowSearch(false);
     // Longer delay to let the full chat render before scrolling
-    setTimeout(() => setHighlightedMessageId(messageId), 500);
+    setTimeout(() => {
+      setHighlightedMessageId(messageId);
+      setIsScrolling(false);
+    }, 500);
   };
 
   return (
@@ -283,6 +288,16 @@ export default function ChatView({ chat, onImageClick, onBack }) {
             onImageClick={onImageClick}
             onClose={() => setShowMedia(false)}
           />
+        </div>
+      )}
+
+      {/* Loading Overlay when scrolling to message */}
+      {isScrolling && (
+        <div className="absolute inset-0 z-50 bg-[#0b141a]/80 flex items-center justify-center">
+          <div className="flex flex-col items-center gap-3">
+            <div className="w-10 h-10 border-3 border-[#00a884]/30 border-t-[#00a884] rounded-full animate-spin" />
+            <span className="text-[#8696a0] text-sm">Jumping to message...</span>
+          </div>
         </div>
       )}
     </div>
