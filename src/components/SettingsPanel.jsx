@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function SettingsPanel({ onBack }) {
+export default function SettingsPanel({ onBack, yourAvatar, yourName }) {
   const [activeSection, setActiveSection] = useState(null);
 
   const settingsItems = [
@@ -103,13 +103,17 @@ export default function SettingsPanel({ onBack }) {
 
       {/* Profile card */}
       <button className="flex items-center gap-4 px-6 py-4 hover:bg-[#202c33] transition-colors">
-        <div className="w-20 h-20 rounded-full bg-[#6a7175] flex items-center justify-center flex-shrink-0">
-          <svg className="w-12 h-12 text-[#cfd4d6]" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-          </svg>
+        <div className="w-20 h-20 rounded-full bg-[#6a7175] flex items-center justify-center flex-shrink-0 overflow-hidden">
+          {yourAvatar ? (
+            <img src={yourAvatar} alt="Profile" className="w-full h-full object-cover" />
+          ) : (
+            <svg className="w-12 h-12 text-[#cfd4d6]" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+            </svg>
+          )}
         </div>
         <div className="flex-1 text-left">
-          <h2 className="text-[#e9edef] text-lg">Your Name</h2>
+          <h2 className="text-[#e9edef] text-lg">{yourName || 'Your Name'}</h2>
           <p className="text-[#8696a0] text-sm">Hey there! I am using WhatsApp.</p>
         </div>
       </button>
