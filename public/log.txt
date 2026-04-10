@@ -1,0 +1,256 @@
+2026-04-10T08:01:08.259Z	Initializing build environment...
+2026-04-10T08:01:10.462Z	Success: Finished initializing build environment
+2026-04-10T08:01:11.511Z	Cloning repository...
+2026-04-10T08:01:18.587Z	Detected the following tools from environment: npm@10.9.2, nodejs@22.16.0
+2026-04-10T08:01:18.588Z	Restoring from dependencies cache
+2026-04-10T08:01:18.590Z	Restoring from build output cache
+2026-04-10T08:01:18.713Z	Installing project dependencies: npm clean-install --progress=false
+2026-04-10T08:01:22.436Z	
+2026-04-10T08:01:22.437Z	added 130 packages, and audited 131 packages in 3s
+2026-04-10T08:01:22.437Z	
+2026-04-10T08:01:22.437Z	25 packages are looking for funding
+2026-04-10T08:01:22.437Z	  run `npm fund` for details
+2026-04-10T08:01:22.438Z	
+2026-04-10T08:01:22.438Z	found 0 vulnerabilities
+2026-04-10T08:01:22.896Z	Executing user build command: npm run build
+2026-04-10T08:01:23.203Z	
+2026-04-10T08:01:23.203Z	> whatsapp-memories@1.0.0 build
+2026-04-10T08:01:23.203Z	> vite build
+2026-04-10T08:01:23.203Z	
+2026-04-10T08:01:23.574Z	vite v6.4.2 building for production...
+2026-04-10T08:01:23.689Z	transforming...
+2026-04-10T08:01:25.272Z	✓ 38 modules transformed.
+2026-04-10T08:01:25.994Z	rendering chunks...
+2026-04-10T08:01:26.005Z	computing gzip size...
+2026-04-10T08:01:26.235Z	dist/index.html                   0.53 kB │ gzip:  0.34 kB
+2026-04-10T08:01:26.235Z	dist/assets/index-BXRa3CCB.css   25.38 kB │ gzip:  6.31 kB
+2026-04-10T08:01:26.235Z	dist/assets/index-BM_inv8U.js   195.96 kB │ gzip: 58.48 kB
+2026-04-10T08:01:26.236Z	✓ built in 2.62s
+2026-04-10T08:01:26.307Z	Success: Build command completed
+2026-04-10T08:01:26.985Z	Executing user deploy command: npx wrangler deploy
+2026-04-10T08:01:28.169Z	npm warn exec The following package was not found and will be installed: wrangler@4.81.1
+2026-04-10T08:01:38.494Z	
+2026-04-10T08:01:38.494Z	 ⛅️ wrangler 4.81.1
+2026-04-10T08:01:38.495Z	───────────────────
+2026-04-10T08:01:38.681Z	
+2026-04-10T08:01:38.682Z	Detected Project Settings:
+2026-04-10T08:01:38.682Z	 - Worker Name: ninaivo-oru-paravai
+2026-04-10T08:01:38.682Z	 - Framework: Vite
+2026-04-10T08:01:38.683Z	 - Build Command: npm run build
+2026-04-10T08:01:38.683Z	 - Output Directory: dist
+2026-04-10T08:01:38.683Z	
+2026-04-10T08:01:38.683Z	? Do you want to modify these settings?
+2026-04-10T08:01:38.684Z	🤖 Using fallback value in non-interactive context: no
+2026-04-10T08:01:38.684Z	
+2026-04-10T08:01:38.684Z	📦 Install packages:
+2026-04-10T08:01:38.688Z	 - wrangler (devDependency)
+2026-04-10T08:01:38.688Z	
+2026-04-10T08:01:38.689Z	📝 Update package.json scripts:
+2026-04-10T08:01:38.689Z	 - "deploy": "npm run build && wrangler deploy"
+2026-04-10T08:01:38.689Z	 - "preview": "npm run build && wrangler dev"
+2026-04-10T08:01:38.689Z	
+2026-04-10T08:01:38.689Z	📄 Create wrangler.jsonc:
+2026-04-10T08:01:38.689Z	  {
+2026-04-10T08:01:38.689Z	    "$schema": "node_modules/wrangler/config-schema.json",
+2026-04-10T08:01:38.691Z	    "name": "ninaivo-oru-paravai",
+2026-04-10T08:01:38.691Z	    "compatibility_date": "2026-04-10",
+2026-04-10T08:01:38.691Z	    "observability": {
+2026-04-10T08:01:38.692Z	      "enabled": true
+2026-04-10T08:01:38.692Z	    },
+2026-04-10T08:01:38.692Z	    "assets": {
+2026-04-10T08:01:38.693Z	      "not_found_handling": "single-page-application"
+2026-04-10T08:01:38.693Z	    },
+2026-04-10T08:01:38.693Z	    "compatibility_flags": [
+2026-04-10T08:01:38.697Z	      "nodejs_compat"
+2026-04-10T08:01:38.697Z	    ]
+2026-04-10T08:01:38.697Z	  }
+2026-04-10T08:01:38.697Z	
+2026-04-10T08:01:38.697Z	🛠️  Configuring project for Vite
+2026-04-10T08:01:38.697Z	
+2026-04-10T08:01:38.697Z	? Proceed with setup?
+2026-04-10T08:01:38.698Z	🤖 Using fallback value in non-interactive context: yes
+2026-04-10T08:01:46.635Z	├ Adding Wrangler files to the .gitignore file
+2026-04-10T08:01:46.635Z	│ updated .gitignore file
+2026-04-10T08:01:46.635Z	│
+2026-04-10T08:01:46.635Z	[build] Running: npm run build
+2026-04-10T08:01:46.809Z	[build] 
+2026-04-10T08:01:46.810Z	[build] > whatsapp-memories@1.0.0 build
+2026-04-10T08:01:46.810Z	[build] > vite build
+2026-04-10T08:01:46.810Z	[build] 
+2026-04-10T08:01:46.810Z	[build] 
+2026-04-10T08:01:48.300Z	[build] vite v6.4.2 building for production...
+2026-04-10T08:01:48.300Z	[build] 
+2026-04-10T08:01:48.544Z	[build] transforming...
+2026-04-10T08:01:48.545Z	[build] 
+2026-04-10T08:01:49.811Z	[build] ✓ 38 modules transformed.
+2026-04-10T08:01:49.811Z	[build] 
+2026-04-10T08:01:50.828Z	[build] rendering chunks...
+2026-04-10T08:01:50.829Z	[build] 
+2026-04-10T08:01:50.841Z	[build] computing gzip size...
+2026-04-10T08:01:50.841Z	[build] 
+2026-04-10T08:01:50.849Z	[build] dist/.assetsignore                0.02 kB
+2026-04-10T08:01:50.850Z	[build] 
+2026-04-10T08:01:50.850Z	[build] dist/index.html                   0.53 kB │ gzip:  0.34 kB
+2026-04-10T08:01:50.850Z	[build] dist/wrangler.json                1.19 kB │ gzip:  0.60 kB
+2026-04-10T08:01:50.850Z	[build] dist/assets/index-BXRa3CCB.css   25.38 kB │ gzip:  6.31 kB
+2026-04-10T08:01:50.850Z	[build] 
+2026-04-10T08:01:50.850Z	[build] dist/assets/index-BM_inv8U.js   195.96 kB │ gzip: 58.48 kB
+2026-04-10T08:01:50.851Z	[build] 
+2026-04-10T08:01:50.851Z	[build] ✓ built in 2.43s
+2026-04-10T08:01:50.851Z	[build] 
+2026-04-10T08:01:50.951Z	Using redirected Wrangler configuration.
+2026-04-10T08:01:50.952Z	 - Configuration being used: "dist/wrangler.json"
+2026-04-10T08:01:50.952Z	 - Original user's configuration: "wrangler.jsonc"
+2026-04-10T08:01:50.952Z	 - Deploy configuration file: ".wrangler/deploy/config.json"
+2026-04-10T08:01:52.097Z	🌀 Building list of assets...
+2026-04-10T08:01:52.108Z	✨ Read 626 files from the assets directory /opt/buildhome/repo/dist
+2026-04-10T08:01:53.296Z	🌀 Starting asset upload...
+2026-04-10T08:01:57.058Z	🌀 Found 621 new or modified static assets to upload. Proceeding with upload...
+2026-04-10T08:01:57.058Z	+ /data/chats.json
+2026-04-10T08:01:57.058Z	+ /whatsapp-icon.svg
+2026-04-10T08:01:57.058Z	+ /data/media/STK-20230122-WA0000.webp
+2026-04-10T08:01:57.058Z	+ /data/media/IMG-20240718-WA0018.jpg
+2026-04-10T08:01:57.058Z	+ /data/media/STK-20240910-WA0002.webp
+2026-04-10T08:01:57.058Z	+ /data/media/IMG-20231231-WA0004.jpg
+2026-04-10T08:01:57.058Z	+ /data/media/STK-20240906-WA0023.webp
+2026-04-10T08:01:57.058Z	+ /data/media/PTT-20240915-WA0004.opus
+2026-04-10T08:01:57.058Z	+ /data/media/STK-20231115-WA0005.webp
+2026-04-10T08:01:57.058Z	+ /data/media/IMG-20231029-WA0047.jpg
+2026-04-10T08:01:57.058Z	+ /data/media/IMG-20231029-WA0064.jpg
+2026-04-10T08:01:57.058Z	+ /data/media/IMG-20241003-WA0006.jpg
+2026-04-10T08:01:57.058Z	+ /data/media/IMG-20231026-WA0000.jpg
+2026-04-10T08:01:57.059Z	+ /data/media/VID-20240317-WA0009.mp4
+2026-04-10T08:01:57.059Z	+ /data/media/IMG-20240829-WA0002.jpg
+2026-04-10T08:01:57.059Z	+ /data/media/IMG-20240728-WA0000.jpg
+2026-04-10T08:01:57.059Z	+ /data/media/VID-20240921-WA0009.mp4
+2026-04-10T08:01:57.059Z	+ /data/media/VID-20240704-WA0005.mp4
+2026-04-10T08:01:57.059Z	+ /data/media/STK-20231024-WA0006.webp
+2026-04-10T08:01:57.059Z	+ /data/media/IMG-20240916-WA0009.jpg
+2026-04-10T08:01:57.061Z	+ /data/media/VID-20231226-WA0006.mp4
+2026-04-10T08:01:57.067Z	+ /data/media/IMG-20240704-WA0002.jpg
+2026-04-10T08:01:57.067Z	+ /data/media/IMG-20240914-WA0015.jpg
+2026-04-10T08:01:57.067Z	+ /data/media/MS5126 Essay assignment.docx
+2026-04-10T08:01:57.067Z	+ /data/media/VID-20240704-WA0004.mp4
+2026-04-10T08:01:57.067Z	+ /data/media/VID-20231230-WA0008.mp4
+2026-04-10T08:01:57.067Z	+ /data/media/IMG-20231006-WA0002.jpg
+2026-04-10T08:01:57.067Z	+ /data/media/IMG-20240102-WA0009.jpg
+2026-04-10T08:01:57.068Z	+ /data/media/IMG-20240717-WA0036.jpg
+2026-04-10T08:01:57.068Z	+ /data/media/IMG-20240915-WA0007.jpg
+2026-04-10T08:01:57.068Z	+ /data/media/IMG-20230929-WA0002.jpg
+2026-04-10T08:01:57.068Z	+ /data/media/STK-20231024-WA0005.webp
+2026-04-10T08:01:57.068Z	+ /data/media/IMG-20240921-WA0000.jpg
+2026-04-10T08:01:57.068Z	+ /data/media/IMG-20240914-WA0014.jpg
+2026-04-10T08:01:57.068Z	+ /data/media/STK-20230410-WA0001.webp
+2026-04-10T08:01:57.069Z	+ /data/media/VID-20231119-WA0002.mp4
+2026-04-10T08:01:57.069Z	+ /fav-icon.png
+2026-04-10T08:01:57.069Z	+ /data/media/STK-20240921-WA0008.webp
+2026-04-10T08:01:57.069Z	+ /data/media/IMG-20240711-WA0014.jpg
+2026-04-10T08:01:57.069Z	+ /data/media/IMG-20240730-WA0008.jpg
+2026-04-10T08:01:57.069Z	+ /data/media/IMG-20240704-WA0001.jpg
+2026-04-10T08:01:57.070Z	+ /data/media/VID-20240210-WA0000.mp4
+2026-04-10T08:01:57.071Z	+ /data/media/IMG-20240816-WA0009.jpg
+2026-04-10T08:01:57.071Z	+ /data/media/IMG-20240915-WA0008.jpg
+2026-04-10T08:01:57.071Z	+ /data/media/STK-20240106-WA0009.webp
+2026-04-10T08:01:57.071Z	+ /data/media/IMG-20240907-WA0014.jpg
+2026-04-10T08:01:57.071Z	+ /data/media/IMG-20240711-WA0033.jpg
+2026-04-10T08:01:57.072Z	+ /data/media/IMG-20240817-WA0008.jpg
+2026-04-10T08:01:57.072Z	+ /data/media/IMG-20231118-WA0000.jpg
+2026-04-10T08:01:57.072Z	+ /data/media/IMG-20240711-WA0034.jpg
+2026-04-10T08:01:57.072Z	+ /data/media/IMG-20240916-WA0012.jpg
+2026-04-10T08:01:57.072Z	+ /data/media/IMG-20240815-WA0021.jpg
+2026-04-10T08:01:57.073Z	+ /data/media/IMG-20240807-WA0043.jpg
+2026-04-10T08:01:57.073Z	+ /data/media/IMG-20240711-WA0023.jpg
+2026-04-10T08:01:57.073Z	+ /data/media/IMG-20231001-WA0004.jpg
+2026-04-10T08:01:57.073Z	+ /data/media/IMG-20240906-WA0017.jpg
+2026-04-10T08:01:57.073Z	+ /data/media/IMG-20240807-WA0020.jpg
+2026-04-10T08:01:57.073Z	+ /data/media/IMG-20240121-WA0005.jpg
+2026-04-10T08:01:57.073Z	+ /data/media/IMG-20240712-WA0003.jpg
+2026-04-10T08:01:57.073Z	+ /data/media/IMG-20240804-WA0042.jpg
+2026-04-10T08:01:57.073Z	+ /data/media/IMG-20240808-WA0005.jpg
+2026-04-10T08:01:57.073Z	+ /data/media/IMG-20240730-WA0006.jpg
+2026-04-10T08:01:57.073Z	+ /data/media/IMG-20230911-WA0007.jpg
+2026-04-10T08:01:57.073Z	+ /data/media/STK-20240910-WA0003.webp
+2026-04-10T08:01:57.074Z	+ /data/media/IMG-20240717-WA0032.jpg
+2026-04-10T08:01:57.074Z	+ /data/media/IMG-20240706-WA0036.jpg
+2026-04-10T08:01:57.074Z	+ /data/media/IMG-20240722-WA0005.jpg
+2026-04-10T08:01:57.074Z	+ /data/media/IMG-20240828-WA0001.jpg
+2026-04-10T08:01:57.074Z	+ /data/media/IMG-20240226-WA0000.jpg
+2026-04-10T08:01:57.074Z	+ /data/media/IMG-20240811-WA0001.jpg
+2026-04-10T08:01:57.074Z	+ /data/media/STK-20230805-WA0002.webp
+2026-04-10T08:01:57.074Z	+ /data/Ray.jpg
+2026-04-10T08:01:57.074Z	+ /data/media/IMG-20240815-WA0007.jpg
+2026-04-10T08:01:57.075Z	+ /data/media/IMG-20240102-WA0003.jpg
+2026-04-10T08:01:57.075Z	+ /data/media/IMG-20240711-WA0020.jpg
+2026-04-10T08:01:57.075Z	+ /data/media/IMG-20240103-WA0000.jpg
+2026-04-10T08:01:57.075Z	+ /data/media/IMG-20240904-WA0003.jpg
+2026-04-10T08:01:57.075Z	+ /data/media/IMG-20231107-WA0003.jpg
+2026-04-10T08:01:57.075Z	+ /data/media/IMG-20240807-WA0007.jpg
+2026-04-10T08:01:57.075Z	+ /data/media/IMG-20240806-WA0001.jpg
+2026-04-10T08:01:57.075Z	+ /data/media/IMG-20240819-WA0017.jpg
+2026-04-10T08:01:57.075Z	+ /data/media/IMG-20240917-WA0001.jpg
+2026-04-10T08:01:57.076Z	+ /data/media/IMG-20240813-WA0005.jpg
+2026-04-10T08:01:57.076Z	+ /data/media/IMG-20240920-WA0016.jpg
+2026-04-10T08:01:57.076Z	+ /data/media/IMG-20240711-WA0007.jpg
+2026-04-10T08:01:57.076Z	+ /data/media/IMG-20240814-WA0003.jpg
+2026-04-10T08:01:57.076Z	+ /data/media/VID-20231227-WA0002.mp4
+2026-04-10T08:01:57.076Z	+ /data/media/IMG-20240729-WA0006.jpg
+2026-04-10T08:01:57.076Z	+ /data/media/IMG-20240804-WA0047.jpg
+2026-04-10T08:01:57.076Z	+ /data/media/IMG-20240916-WA0002.jpg
+2026-04-10T08:01:57.077Z	+ /data/media/IMG-20240714-WA0004.jpg
+2026-04-10T08:01:57.077Z	+ /data/media/IMG-20240807-WA0042.jpg
+2026-04-10T08:01:57.077Z	+ /data/media/IMG-20240729-WA0007.jpg
+2026-04-10T08:01:57.077Z	+ /data/media/VID-20231114-WA0001.mp4
+2026-04-10T08:01:57.077Z	+ /data/media/IMG-20240717-WA0034.jpg
+2026-04-10T08:01:57.077Z	+ /data/media/IMG-20240717-WA0035.jpg
+2026-04-10T08:01:57.077Z	+ /data/media/IMG-20240916-WA0001.jpg
+2026-04-10T08:01:57.077Z	+ /data/media/IMG-20240807-WA0022.jpg
+2026-04-10T08:01:57.077Z	+ /data/media/IMG-20240823-WA0007.jpg
+2026-04-10T08:01:57.077Z	+ /data/media/IMG-20240711-WA0002.jpg
+2026-04-10T08:01:57.077Z	   (truncating changed assets log, set `WRANGLER_LOG=debug` environment variable to see full diff)
+2026-04-10T08:02:08.195Z	Uploaded 203 of 621 assets
+2026-04-10T08:02:10.152Z	Uploaded 406 of 621 assets
+2026-04-10T08:02:10.618Z	Uploaded 609 of 621 assets
+2026-04-10T08:02:12.560Z	Asset upload failed. Retrying...
+2026-04-10T08:02:12.560Z	 APIError: A request to the Cloudflare API (/accounts/cd50441c1ff94a9163ab1d8552b5b942/workers/assets/upload?base64=true) failed.
+2026-04-10T08:02:12.582Z	Asset upload failed. Retrying...
+2026-04-10T08:02:12.582Z	 APIError: A request to the Cloudflare API (/accounts/cd50441c1ff94a9163ab1d8552b5b942/workers/assets/upload?base64=true) failed.
+2026-04-10T08:02:16.775Z	Asset upload failed. Retrying...
+2026-04-10T08:02:16.775Z	 APIError: A request to the Cloudflare API (/accounts/cd50441c1ff94a9163ab1d8552b5b942/workers/assets/upload?base64=true) failed.
+2026-04-10T08:02:16.812Z	Asset upload failed. Retrying...
+2026-04-10T08:02:16.812Z	 APIError: A request to the Cloudflare API (/accounts/cd50441c1ff94a9163ab1d8552b5b942/workers/assets/upload?base64=true) failed.
+2026-04-10T08:02:24.583Z	Asset upload failed. Retrying...
+2026-04-10T08:02:24.583Z	 APIError: A request to the Cloudflare API (/accounts/cd50441c1ff94a9163ab1d8552b5b942/workers/assets/upload?base64=true) failed.
+2026-04-10T08:02:24.589Z	Asset upload failed. Retrying...
+2026-04-10T08:02:24.589Z	 APIError: A request to the Cloudflare API (/accounts/cd50441c1ff94a9163ab1d8552b5b942/workers/assets/upload?base64=true) failed.
+2026-04-10T08:02:44.294Z	✘ [ERROR] A request to the Cloudflare API (/accounts/cd50441c1ff94a9163ab1d8552b5b942/workers/assets/upload?base64=true) failed.
+2026-04-10T08:02:44.294Z	
+2026-04-10T08:02:44.294Z	
+2026-04-10T08:02:44.297Z	
+2026-04-10T08:02:44.297Z	Cloudflare collects anonymous telemetry about your usage of Wrangler. Learn more at https://github.com/cloudflare/workers-sdk/tree/main/packages/wrangler/telemetry.md
+2026-04-10T08:02:44.300Z	
+2026-04-10T08:02:44.302Z	✘ [ERROR] A request to the Cloudflare API (/accounts/cd50441c1ff94a9163ab1d8552b5b942/workers/assets/upload?base64=true) failed.
+2026-04-10T08:02:44.302Z	
+2026-04-10T08:02:44.302Z	  An unknown error has occurred. Please contact support: https://cfl.re/3WgEyrH [code: -1]
+2026-04-10T08:02:44.302Z	  
+2026-04-10T08:02:44.302Z	  If you think this is a bug, please open an issue at: https://github.com/cloudflare/workers-sdk/issues/new/choose
+2026-04-10T08:02:44.302Z	
+2026-04-10T08:02:44.302Z	
+2026-04-10T08:02:44.338Z	This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). The promise rejected with the reason:
+2026-04-10T08:02:44.338Z	APIError: A request to the Cloudflare API (/accounts/cd50441c1ff94a9163ab1d8552b5b942/workers/assets/upload?base64=true) failed.
+2026-04-10T08:02:44.338Z	    at throwFetchError (/opt/buildhome/.npm/_npx/32026684e21afda6/node_modules/wrangler/wrangler-dist/cli.js:128404:18)
+2026-04-10T08:02:44.338Z	    at fetchResult (/opt/buildhome/.npm/_npx/32026684e21afda6/node_modules/wrangler/wrangler-dist/cli.js:128286:5)
+2026-04-10T08:02:44.338Z	    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-04-10T08:02:44.338Z	    at async doUpload (/opt/buildhome/.npm/_npx/32026684e21afda6/node_modules/wrangler/wrangler-dist/cli.js:307570:25)
+2026-04-10T08:02:44.338Z	    at async /opt/buildhome/.npm/_npx/32026684e21afda6/node_modules/wrangler/wrangler-dist/cli.js:134848:30
+2026-04-10T08:02:44.342Z	✘ [ERROR] A request to the Cloudflare API (/accounts/cd50441c1ff94a9163ab1d8552b5b942/workers/assets/upload?base64=true) failed.
+2026-04-10T08:02:44.342Z	
+2026-04-10T08:02:44.342Z	
+2026-04-10T08:02:44.343Z	This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). The promise rejected with the reason:
+2026-04-10T08:02:44.343Z	APIError: A request to the Cloudflare API (/accounts/cd50441c1ff94a9163ab1d8552b5b942/workers/assets/upload?base64=true) failed.
+2026-04-10T08:02:44.343Z	    at throwFetchError (/opt/buildhome/.npm/_npx/32026684e21afda6/node_modules/wrangler/wrangler-dist/cli.js:128404:18)
+2026-04-10T08:02:44.343Z	    at fetchResult (/opt/buildhome/.npm/_npx/32026684e21afda6/node_modules/wrangler/wrangler-dist/cli.js:128286:5)
+2026-04-10T08:02:44.343Z	    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-04-10T08:02:44.343Z	    at async doUpload (/opt/buildhome/.npm/_npx/32026684e21afda6/node_modules/wrangler/wrangler-dist/cli.js:307570:25)
+2026-04-10T08:02:44.344Z	    at async /opt/buildhome/.npm/_npx/32026684e21afda6/node_modules/wrangler/wrangler-dist/cli.js:134848:30
+2026-04-10T08:02:44.701Z	🪵  Logs were written to "/opt/buildhome/.config/.wrangler/logs/wrangler-2026-04-10_08-01-37_687.log"
+2026-04-10T08:02:44.812Z	Failed: error occurred while running deploy command
