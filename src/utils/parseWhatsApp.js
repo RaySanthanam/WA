@@ -64,6 +64,9 @@ export function parseWhatsAppChat(chatText, yourName) {
     messages.push(currentMessage);
   }
 
+  // Sort messages by timestamp to ensure correct order
+  messages.sort((a, b) => a.timestamp - b.timestamp);
+
   return messages;
 }
 
@@ -106,8 +109,10 @@ function parseTimestamp(dateStr, timeStr) {
 }
 
 function formatTime(timeStr) {
-  // Clean up and format time for display
-  return timeStr.trim().replace(/:\d{2}\s*(AM|PM)/i, ' $1').replace(/:\d{2}$/, '');
+  // Keep hours:minutes, remove seconds if present
+  // e.g., "2:30:45 PM" -> "2:30 PM", "14:30:15" -> "14:30"
+  const cleaned = timeStr.trim();
+  return cleaned.replace(/(\d{1,2}:\d{2}):\d{2}/, '$1');
 }
 
 function detectMessageType(content) {
