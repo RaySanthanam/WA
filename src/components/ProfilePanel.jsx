@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function ProfilePanel({ onBack, yourName }) {
+export default function ProfilePanel({ onBack, yourName, yourAvatar }) {
   const [name, setName] = useState(yourName || 'Your Name');
   const [about, setAbout] = useState('Hey there! I am using WhatsApp.');
   const [editingName, setEditingName] = useState(false);
@@ -26,9 +26,13 @@ export default function ProfilePanel({ onBack, yourName }) {
         <div className="flex justify-center py-8">
           <div className="relative group">
             <div className="w-[200px] h-[200px] rounded-full bg-[#6a7175] flex items-center justify-center overflow-hidden">
-              <svg className="w-32 h-32 text-[#cfd4d6]" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-              </svg>
+              {yourAvatar ? (
+                <img src={yourAvatar} alt="Profile" className="w-full h-full object-cover" />
+              ) : (
+                <svg className="w-32 h-32 text-[#cfd4d6]" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                </svg>
+              )}
             </div>
             <button className="absolute inset-0 bg-black/50 rounded-full opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-white">
               <svg className="w-8 h-8 mb-1" fill="currentColor" viewBox="0 0 24 24">
