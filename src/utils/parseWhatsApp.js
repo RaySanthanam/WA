@@ -142,7 +142,7 @@ function detectMessageType(content) {
 
 function extractMediaFilename(content) {
   // Try to extract filename from message
-  const match = content.match(/([\w\-. ]+\.(jpg|jpeg|png|gif|webp|mp4|mov|avi|webm|mp3|ogg|opus|m4a|pdf|doc|docx))/i);
+  const match = content.match(/([\w\-. ]+\.(jpg|jpeg|png|gif|webp|mp4|mov|avi|webm|mp3|ogg|opus|oga|m4a|pdf|doc|docx|xls|xlsx))/i);
   return match ? match[1] : null;
 }
 
